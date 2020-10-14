@@ -1,9 +1,12 @@
+# Resources
+
+[Paradigms of Artificial Intelligence Programming (Norvig, 1991)](https://github.com/norvig/paip-lisp)
+
+[Programming Clojure (Miller, 2018)](https://www.amazon.com/Programming-Clojure-Pragmatic-Programmers-Miller/dp/1680502468)
+
 # Getting Started
 
-- [VS Code] [recommended][blog]
-
-
-
+- Visual Studio Code [recommended][blog]
 - Install Java:
 ```
   brew install openjdk@11
@@ -25,7 +28,7 @@ git branch -M main
 git push -u origin main
 ```
 
-- Review [Clojure] [syntax] and [repl]
+- Getting started with [syntax] and [repl] 
 
 [Clojure]: https://clojure.org/
 [syntax]: https://clojure.org/guides/learn/syntax
