@@ -7,19 +7,18 @@
 # Getting Started
 
 - Visual Studio Code [recommended][blog]
-- Install Java:
+- Install the recommended JVM:
 ```
   brew install openjdk@11
   ls -l `which java`
   export JAVA_HOME=/usr/local/opt/openjdk@11
 ```
 
-- [Install][Leiningen] Leiningen
-- In [VS Code] 
-  - add [extension](https://marketplace.visualstudio.com/items?itemName=avli.clojure) 
-  - ``ctrl+` `` to emulate shell
-  - `lein repl`
-
+- Install [Leiningen]
+- [VS Code] extensions:
+  - [Clojure][lisin] for `lein repl` integration
+  - [Clojure Code][norton] for debugging
+  - [Calva] too cluttered and issues connecting `repl`
 
 - Push to GitHub:
 ```
@@ -30,6 +29,9 @@ git push -u origin main
 
 - Getting started with [syntax] and [repl] 
 
+[Calva]: https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva
+[norton]: https://marketplace.visualstudio.com/items?itemName=jamesnorton.continuum
+[lisin]: https://marketplace.visualstudio.com/items?itemName=avli.clojure
 [Clojure]: https://clojure.org/
 [syntax]: https://clojure.org/guides/learn/syntax
 [repl]: https://clojure.org/guides/repl/basic_usage
