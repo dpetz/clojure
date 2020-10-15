@@ -1,3 +1,4 @@
+;; https://github.com/norvig/paip-lisp/blob/master/docs/chapter4.md
 
 ;; "An operation"
 (defrecord  Op
@@ -20,7 +21,7 @@
         [:drive-son-to-school]
         [])))
 
-(declare achieved apply-op appropriate?)
+(declare achieved? apply-op appropriate?)
 
 (defn GPS 
     "General Problem Solver: achieve all goals using ops."
@@ -32,7 +33,6 @@
     "An op is appropriate to a goal if it is in its add list."
     [op goal]
     (contains? (:add-list op) goal))
-
 
 (defn achieved?
     "A goal is achieved if it already holds,
@@ -57,4 +57,28 @@
             (difference state (:del-list op))
             (:add-list op)))
         ('state)))
+
+(defn test-apply-op [] 
+    (let [op (Op.
+        :A-to-B
+        (set :A)
+        (set :B)
+        (set :A))]
+
+        (print op)))
+
+
+
+ (test-apply-op)
+
+
+
+        (apply-op
+            op
+            (set :A)
+            (set op))))
+
+
+
+
 

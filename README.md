@@ -1,41 +1,44 @@
-# Resources
+# paip
 
-[Paradigms of Artificial Intelligence Programming (Norvig, 1991)](https://github.com/norvig/paip-lisp)
+FIXME: description
 
-[Programming Clojure (Miller, 2018)](https://www.amazon.com/Programming-Clojure-Pragmatic-Programmers-Miller/dp/1680502468)
+## Installation
 
-# Getting Started
+Download from http://example.com/FIXME.
 
-- Visual Studio Code [recommended][blog]
-- Install the recommended JVM:
-```
-  brew install openjdk@11
-  ls -l `which java`
-  export JAVA_HOME=/usr/local/opt/openjdk@11
-```
+## Usage
 
-- Install [Leiningen]
-- [VS Code] extensions:
-  - [Clojure][lisin] for `lein repl` integration
-  - [Clojure Code][norton] for debugging
-  - [Calva] too cluttered and issues connecting `repl`
+FIXME: explanation
 
-- Push to GitHub:
-```
-git remote set-url origin https://github.com/dpetz/clojure.git
-git branch -M main
-git push -u origin main
-```
+    $ java -jar paip-0.1.0-standalone.jar [args]
 
-- Getting started with [syntax] and [repl] 
+## Options
 
-[Calva]: https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva
-[norton]: https://marketplace.visualstudio.com/items?itemName=jamesnorton.continuum
-[lisin]: https://marketplace.visualstudio.com/items?itemName=avli.clojure
-[Clojure]: https://clojure.org/
-[syntax]: https://clojure.org/guides/learn/syntax
-[repl]: https://clojure.org/guides/repl/basic_usage
-[VS Code]: https://code.visualstudio.com/
-[blog]: https://spin.atomicobject.com/2017/06/22/clojure-development-with-visual-studio-code/
-[Leiningen]: https://leiningen.org/#install
-[extension]: https://marketplace.visualstudio.com/items?itemName=avli.clojure
+FIXME: listing of options this app accepts.
+
+## Examples
+
+...
+
+### Bugs
+
+...
+
+### Any Other Sections
+### That You Think
+### Might be Useful
+
+## License
+
+Copyright © 2020 FIXME
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License 2.0 which is available at
+http://www.eclipse.org/legal/epl-2.0.
+
+This Source Code may also be made available under the following Secondary
+Licenses when the conditions for such availability set forth in the Eclipse
+Public License, v. 2.0 are satisfied: GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or (at your
+option) any later version, with the GNU Classpath Exception which is available
+at https://www.gnu.org/software/classpath/license.html.
