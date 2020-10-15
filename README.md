@@ -1,10 +1,12 @@
 # paip
 
-FIXME: description
+[Paradigms of Artificial Intelligence Programming (Norvig, 1991)](https://github.com/norvig/paip-lisp)
+
+[Programming Clojure (Miller, 2018)](https://www.amazon.com/Programming-Clojure-Pragmatic-Programmers-Miller/dp/1680502468)
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Clone from https://github.com/dpetz/paip
 
 ## Usage
 
