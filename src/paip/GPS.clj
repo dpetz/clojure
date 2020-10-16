@@ -39,9 +39,9 @@
     "A goal is achieved if it already holds,
     or if there is an appropriate op for it that is applicable."
     [goal state ops]
-    ;(print 'achieved? goal "in state" state "via ops" ops)
+    (print 'achieved? goal "in state" state "via ops" ops)
     (or (contains? state goal)
-      (true? '(some #(apply-op % state ops)
+      (true? (some (not= state #(apply-op % state ops))
         (filter #(appropriate? % goal) ops)))))
 
 ;;(GPS #{:drive-son-to-school} ops)
@@ -51,10 +51,12 @@
 (defn apply-op
     "Print a message and update state if op is applicable."
     [op state ops]
-    
-    (if (every? #(achieved? % state ops) (:preconds op))
-        ((print (list 'executing (:action op)))
-        (union
-            (difference state (:del-list op))
-            (:add-list op)))
-        ('state)))
+    (print "may apply:" op state ops)
+    (if 
+        (every? #(achieved? % state ops) (:preconds op))
+        (do
+            ((print "Executing" (:action op))
+            (union
+                (difference state (:del-list op))
+                (:add-list op)))
+        ((state))))

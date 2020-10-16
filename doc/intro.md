@@ -45,13 +45,12 @@ lein compile :all
 
 Usefull `repl` commands:
 ```
-(use 'paip.gps :reload)
 (in-ns 'paip.gps-test)
 (clojure.core/refer 'clojure.core)
 (clojure.core/refer 'clojure.repl)
 ```
 `require` [preferred](https://stackoverflow.com/a/16429572) over `use` outside the `repl`. 
-
+repeat `(use 'paip.gps :reload)` whenever a definition has changed.
 
 
 [Calva]: https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva
