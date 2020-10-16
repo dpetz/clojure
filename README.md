@@ -1,8 +1,6 @@
 # paip
 
-[Paradigms of Artificial Intelligence Programming (Norvig, 1991)](https://github.com/norvig/paip-lisp)
-
-[Programming Clojure (Miller, 2018)](https://www.amazon.com/Programming-Clojure-Pragmatic-Programmers-Miller/dp/1680502468)
+[Paradigms of Artificial Intelligence Programming (Norvig, 1991)](https://github.com/norvig/paip-lisp) meets Clojure.
 
 ## Installation
 
@@ -10,9 +8,7 @@ Clone from https://github.com/dpetz/paip
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar paip-0.1.0-standalone.jar [args]
+See 
 
 ## Options
 

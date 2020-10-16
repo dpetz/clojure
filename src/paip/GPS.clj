@@ -1,5 +1,6 @@
 ;; https://github.com/norvig/paip-lisp/blob/master/docs/chapter4.md
-
+(ns paip.gps
+    (:gen-class))
 ;; "An operation"
 (defrecord  Op
     [action preconds add-list del-list])
@@ -43,7 +44,7 @@
       (some #(apply-op % state ops)
         (filter #(appropriate? % goal) ops))))
 
-(GPS #{:drive-son-to-school} ops)
+;;(GPS #{:drive-son-to-school} ops)
 
 (require '[clojure.set :refer [difference union]])
 
@@ -57,28 +58,3 @@
             (difference state (:del-list op))
             (:add-list op)))
         ('state)))
-
-(defn test-apply-op [] 
-    (let [op (Op.
-        :A-to-B
-        (set :A)
-        (set :B)
-        (set :A))]
-
-        (print op)))
-
-
-
- (test-apply-op)
-
-
-
-        (apply-op
-            op
-            (set :A)
-            (set op))))
-
-
-
-
-
