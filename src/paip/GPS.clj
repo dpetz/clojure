@@ -24,11 +24,11 @@
 
 (declare achieved? apply-op appropriate?)
 
-(defn GPS 
+(defn solve 
     "General Problem Solver: achieve all goals using ops."
     [goals ops]
     (def state "The current state: a set of conditions." (set nil))
-    (if (every? #(achieved? % state ops) goals) :solved))
+    (when (every? #(achieved? % state ops) goals) :solved))
 
 (defn appropriate?
     "An op is appropriate to a goal if it is in its add list."
@@ -39,10 +39,10 @@
     "A goal is achieved if it already holds,
     or if there is an appropriate op for it that is applicable."
     [goal state ops]
-    (print 'achieved? goal "in state" state "via ops" ops)
-    (or (state goal)
-      (some #(apply-op % state ops)
-        (filter #(appropriate? % goal) ops))))
+    ;(print 'achieved? goal "in state" state "via ops" ops)
+    (or (contains? state goal)
+      (true? '(some #(apply-op % state ops)
+        (filter #(appropriate? % goal) ops)))))
 
 ;;(GPS #{:drive-son-to-school} ops)
 
