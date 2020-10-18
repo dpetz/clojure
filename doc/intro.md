@@ -39,20 +39,26 @@ git push -u origin main
 
 
 Useful `lein` commands:
-```
+```s
 lein compile :all
 ```
 
 Usefull `repl` commands:
+
+[Good way][ns-repl] to call editor code in `repl`
+```
+(require '(paip [gps-test :as test] [gps :as gps] :verbose : reload))
+```
+
+Alternatively change namespace in `repl`:
 ```
 (in-ns 'paip.gps-test)
 (clojure.core/refer 'clojure.core)
 (clojure.core/refer 'clojure.repl)
 ```
-`require` [preferred](https://stackoverflow.com/a/16429572) over `use` outside the `repl`. 
-repeat `(use 'paip.gps :reload)` whenever a definition has changed.
+`use` is discouraged since _Clojure 1.4_
 
-
+[ns-repl]: https://8thlight.com/blog/colin-jones/2010/12/05/clojure-libs-and-namespaces-require-use-import-and-ns.html
 [Calva]: https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva
 [norton]: https://marketplace.visualstudio.com/items?itemName=jamesnorton.continuum
 [lisin]: https://marketplace.visualstudio.com/items?itemName=avli.clojure

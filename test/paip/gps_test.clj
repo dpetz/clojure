@@ -2,7 +2,7 @@
     (:require [clojure.test :refer :all]
         [paip.gps :refer :all]))
 
-(deftest achieved-single-åop []
+(defn achieve-single-op []
     "Unit test paip.gps/apply-op"
     (let [op (paip.gps.Op.
         :A-to-B
@@ -10,15 +10,20 @@
         #{ :B }
         #{ :A })]
         
-        (is (true? (achieved?
+        (is (achieve
             :B
             #{:A}
-            #{op})))))
+            #{op}))))
 
-;(achieved-single-op)
+;(achieve-single-op)
 
-(deftest achieved-if-holds-test []
+(deftest achieve-in-state []
    "If goal is in state its achieved" 
-    (is (true? (achieved? :G #{:G} #{}))))
+    (is (achieve :G #{:G} #{})))
 
-;(achieved-if-holds-test)
+(deftest achieve-not-in-state []
+    "If goal is in state its achieved" 
+    (is (nil? (achieve :G #{:not-G} #{}))))
+    
+
+;(paip.gps-test/achieve-in-state)

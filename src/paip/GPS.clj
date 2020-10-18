@@ -22,49 +22,45 @@
         [:drive-son-to-school]
         [])))
 
-(declare achieved? apply-op appropriate?)
+(declare solve achieve operate appropriate)
 
-(defn solve 
+(defn solve
     "General Problem Solver: achieve all goals using ops."
     [goals ops]
     (def state "The current state: a set of conditions." (set nil))
-    (when (every? #(achieved? % state ops) goals) :solved))
+    (when (every? #(achieve % state ops) goals) :solved))
 
 (defn appropriate
-    "Filters ops that appropriate to a goal, i.e that it is in their add list."
+    "Filters ops for which goalis in their add list."
     [ops goal]
     (filter #(contains? (:add-list %) goal) ops))
 
-(defn achieved
+(defn achieve
     "A goal is achived if it already holds,
     or if there is an appropriate op for it that is applicable.
-    Evalates to updated state or nil otherwise."
+    Evalates to (updated) state or nil otherwise."
     [goal state ops]
-    ;(print 'achieved? goal "in state" state "via ops" ops)
-    (if (or (nil? state) (state goal)
-        (state)
+    ;(print '"Achieved" goal "in" state)
+    (if (or (nil? state) (state goal))
+        state
         (some
-            #(apply-op % state ops))
+            #(operate % state ops)
             (appropriate ops goal))))
 
 ;;(GPS #{:drive-son-to-school} ops)
 
 (require '[clojure.set :refer [difference union]])
 
-(defn apply-op
-    "Print a message and update state if op is applicable."
+(defn operate
+    "Update state and print a message if op is applicable.
+    Evaluates to updated state or nil otheriwse."
     [op state ops]
     ;(print "may apply:" op state ops)
-    (let [ (reduce
-            #(let [a (achieved? %2 %1 ops)]
-                (if (nil? a) (:reduced nil) (a)
-            (state)
-            (:preconds op))
+    (when-let [state-new
+        (reduce #(achieve %2 %1 ops)
+        state (:preconds op))]
 
-
-        (every?  )
-        (do
-            ((print "Executing" (:action op))
-            (union
-                (difference state (:del-list op))
-                (:add-list op))))))
+        (print "Executing" (:action op))
+        (union
+            (difference state-new (:del-list op))
+            (:add-list op))))
