@@ -2,7 +2,24 @@
     (:require [clojure.test :refer :all]
         [paip.gps :refer :all]))
 
-(defn achieve-single-op []
+        (def ops "Set of available operations" (list
+            (Op.
+                :drive-son-to-school
+                [:son-at-home :car-works]
+                [:son-at-school]
+                [:son-at-home])
+            (Op.
+                :shop-installs-battery
+                [:car-needs-battery :shop-knows-problem :shop-has-money]
+                [:car-works]
+                [])
+            (Op.
+                :just-do-it
+                []
+                [:drive-son-to-school]
+                [])))
+
+(deftest achieve-single-op []
     "Unit test paip.gps/apply-op"
     (let [op (paip.gps.Op.
         :A-to-B

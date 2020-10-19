@@ -49,6 +49,7 @@ Usefull `repl` commands:
 ```
 (require '(paip [gps-test :as test] [gps :as gps] :verbose : reload))
 ```
+Rerun to compile saved changes.
 
 Alternatively change namespace in `repl`:
 ```
@@ -57,6 +58,13 @@ Alternatively change namespace in `repl`:
 (clojure.core/refer 'clojure.repl)
 ```
 `use` is discouraged since _Clojure 1.4_
+
+
+Run tests from `terminal:
+```
+lein test paip.gps-test
+```
+(autocompiles saved changes)
 
 [ns-repl]: https://8thlight.com/blog/colin-jones/2010/12/05/clojure-libs-and-namespaces-require-use-import-and-ns.html
 [Calva]: https://marketplace.visualstudio.com/items?itemName=betterthantomorrow.calva
