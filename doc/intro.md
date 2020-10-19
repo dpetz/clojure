@@ -47,7 +47,7 @@ Usefull `repl` commands:
 
 [Good way][ns-repl] to call editor code in `repl`
 ```
-(require '(paip [gps-test :as test] [gps :as gps] :verbose : reload))
+(require '(paip [gps-test :as test] [gps :as gps]) :verbose :reload)
 ```
 Rerun to compile saved changes.
 

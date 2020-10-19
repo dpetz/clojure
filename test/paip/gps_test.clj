@@ -1,46 +1,50 @@
 (ns paip.gps-test
-    (:require [clojure.test :refer :all]
-        [paip.gps :refer :all]))
+    (:require [clojure.test :refer :all] [paip.gps :refer :all]))
+ ;   (:import (paip.gps Op)))
 
-        (def ops "Set of available operations" (list
-            (Op.
-                :drive-son-to-school
-                [:son-at-home :car-works]
-                [:son-at-school]
-                [:son-at-home])
-            (Op.
-                :shop-installs-battery
-                [:car-needs-battery :shop-knows-problem :shop-has-money]
-                [:car-works]
-                [])
-            (Op.
-                :just-do-it
-                []
-                [:drive-son-to-school]
-                [])))
+(def A-to-B (make-op
+    :A-to-B
+    [:A]
+    [:B]
+    [:A]))
 
-(deftest achieve-single-op []
-    "Unit test paip.gps/apply-op"
-    (let [op (paip.gps.Op.
-        :A-to-B
-        #{ :A }
-        #{ :B }
-        #{ :A })]
-        
-        (is (achieve
-            :B
-            #{:A}
-            #{op}))))
+(def B-to-C (make-op
+    :B-to-C
+    [:B]
+    [:C]
+    [:B]))
 
-;(achieve-single-op)
+(def ops "Set of available operations" [
+    (make-op
+        :drive-son-to-school
+        [:son-at-home :car-works]
+        [:son-at-school]
+        [:son-at-home])
+    (make-op
+        :shop-installs-battery
+        [:car-needs-battery :shop-knows-problem :shop-has-money]
+        [:car-works]
+        [])
+    (make-op
+        :just-do-it
+        []
+        [:drive-son-to-school]
+        [])])
 
-(deftest achieve-in-state []
-   "If goal is in state its achieved" 
-    (is (achieve :G #{:G} #{})))
 
-(deftest achieve-not-in-state []
-    "If goal is in state its achieved" 
-    (is (nil? (achieve :G #{:not-G} #{}))))
-    
+(deftest in-state []
+    "If goal in state, solved w/o actions"
+    (is (= [] (solve [:G] [:G] []))))
 
-;(paip.gps-test/achieve-in-state)
+
+(deftest single-op []
+    "Single action solving"
+    (is (= [:A-to-B] (solve [:B] [:A] [A-to-B]))))
+
+(deftest two-ops []
+    "Two action solving"
+    (is (= [:A-to-B :B-to-C] (solve [:C] [:A] [B-to-C A-to-B]))))
+
+(deftest not-in-state []
+    "If goal not in state, cannot be solved w/o actions" 
+    (is (nil? (solve [:G] [:not-G] [A-to-B]))))
